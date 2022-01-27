@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta>
+         <link rel="stylesheet" type="text/css" href="../css/style-money.css">
+         <link rel="stylesheet" type="text/css" href="../css/style.css">
+         <link rel="stylesheet" type="text/css" href="../css/singleStyle.css">
+         <title> Savingamwa </title>
+         <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
+         <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+         <script type="module" src="../js/singleWallet.js" defer></script>
+</head>
+<body>
+
+<div class="topnav">
+  
+   <a class="active"href="../myBugdet.html"><strong>Bugdet my money</strong></a>
+   <a href="user.html"><strong>My Dashboard</strong></a>
+ 
+<div class="login-container">
+        <form action="post">
+            <a class="cart-btn" href="./history.html">
+                <span class="nav-icon">
+                    <i class="fas fa-history"></i>
+                </span>
+                
+            </a>
+
+            <a  class="log-out" href="login.html"><strong>Sign Out </strong></a>           
+        </form>
+</div>
+
+</div>
+
+</div> 
+
+<div id="singleProperty">
+
+</div>
+
+<div class="main_admin">
+
+     
+            <!-- 
+            .....................................implementing tab content on single property ................................... -->
+           
+
+    
+    <div class="tab">
+        <button class="tablinks" onclick="open_single_tabs(event, 'description_details')">Description</button>      
+    
+    </div>
+
+
+    <div class="content_tab_main">                       
+
+        <!-- Tab content -->
+                 <div id="description_details" class="tabcontent">
+
+                    <h3>Welcome Description <span class="description_details_header"></span>  </h3>
+                    <p class="description_details"></p>
+                </div>
+
+                               
+
+    </div>
+ </div>
+
+               
+   
+<div id="footer">
+    &copy; <span id="date_savingamwa">2021</span>  Designed by BYAMUNGU desire || Andela Developer Challenge
+</div> 
+
+</body>
+
+<script>
+                
+
+function open_single_tabs(evt, single_tabs) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+    
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    // tabcontent.textContent= 'this has been fecthed'
+    for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";     
+    }
+    
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(single_tabs).style.display = "block";
+    evt.currentTarget.className += " active"; 
+
+    }
+
+
+    // // to show properties in cart
+    let user = JSON.parse(localStorage.getItem('user'));      
+        if (user == null) {
+            window.location.href = './login.html'
+        }
+
+         // cart logic
+        if (typeof window !== 'undefined') {
+        if (localStorage.getItem('cart')) {            
+            let storedInCarrt = JSON.parse(localStorage.getItem('cart'))
+            let cart = document.querySelectorAll(".cart-items")[0];
+            cart.textContent = storedInCarrt.length
+        }
+
+    }
+
+    
+  
+
+            // ---------------------for real time date at the bootom-------------------
+            const date = document.getElementById('date_savingamwa');
+            let date_Today = new Date();
+            let year = date_Today.getFullYear();
+            let month = date_Today.getMonth();
+            let day = date_Today.getUTCDay();
+            console.log(month)
+
+            let today = date_Today.getUTCDate()
+            //formating date month to normal format jan-december
+                if(month == 0){
+                    month = "Jan"
+                } else if(month == 1){
+                    month = "Feb"
+                }else if(month == 2){
+                    month = "Mar"
+                }else if(month == 3){
+                    month = "Apr"
+                }else if(month == 4){
+                    month = "May"
+                }else if(month == 5){
+                    month = "Jun"
+                }else if(month == 7){
+                    month = "Aug"
+                }else if(month == 8){
+                    month = "Sept"
+                }else if(month == 9){
+                    month = "Oct"
+                }else if(month == 10){
+                    month = "Nov"
+                }else if(month == 11){
+                    month = "Dec"
+                }
+
+                
+            date.textContent= today +"-"+ month +"-"+year;
+
+            //...............................End here date month format    
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta>
+         <link rel="stylesheet" type="text/css" href="../css/style-money.css">
+         <link rel="stylesheet" type="text/css" href="../css/style.css">
+         <link rel="stylesheet" type="text/css" href="../css/singleStyle.css">
+         <title> Savingamwa </title>
+         <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
+         <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+         <script type="module" src="../js/singlecategory.js" defer></script>      
+
+</head>
+<body>
+
+<div class="topnav">  
+   <a class="active"href="./myBugdet.html"><strong>Bugdet my money</strong></a>
+   <a href="user.html"><strong>My Dashboard</strong></a> 
+   <div class="login-container">
+            <form action="post">
+                <a class="cart-btn" href="./history.html">
+                    <span class="nav-icon">
+                        <i class="fas fa-history"></i>
+                    </span>
+                    
+                </a>
+                <a  class="log-out" href="login.html"><strong>Sign Out </strong></a>           
+            </form>
+   </div>
+</div>
+
+<div class="category_container">
+</div>
+               
+   
+<div id="footer">
+    &copy; <span id="date_savingamwa">2021</span>  Designed by BYAMUNGU desire || Savingamwa.rw
+</div> 
+
+</body>
+
+<script>            
+            // // to show properties in cart
+            let user = JSON.parse(localStorage.getItem('user'));      
+                if (user == null) {
+                    window.location.href = './login.html'
+                }   
+  
+
+            // ---------------------for real time date at the bootom-------------------
+            const date = document.getElementById('date_savingamwa');
+            let date_Today = new Date();
+            let year = date_Today.getFullYear();
+            let month = date_Today.getMonth();
+            let day = date_Today.getUTCDay();
+            console.log(month)
+
+            let today = date_Today.getUTCDate()
+            //formating date month to normal format jan-december
+                if(month == 0){
+                    month = "Jan"
+                } else if(month == 1){
+                    month = "Feb"
+                }else if(month == 2){
+                    month = "Mar"
+                }else if(month == 3){
+                    month = "Apr"
+                }else if(month == 4){
+                    month = "May"
+                }else if(month == 5){
+                    month = "Jun"
+                }else if(month == 7){
+                    month = "Aug"
+                }else if(month == 8){
+                    month = "Sept"
+                }else if(month == 9){
+                    month = "Oct"
+                }else if(month == 10){
+                    month = "Nov"
+                }else if(month == 11){
+                    month = "Dec"
+                }
+
+                
+            date.textContent= today +"-"+ month +"-"+year;
+            //...............................End here date month format    
+</script>
+</html>

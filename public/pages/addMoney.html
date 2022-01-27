@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <meta>
+      <link rel="stylesheet" type="text/css" href="../css/style-signup-signin-sell.css">
+      <title>  Savingamwa</title>
+      <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
+      <!-- for-font-awesome -->
+      <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+
+<body>
+
+  <a class="sell" href="http://localhost:3000/public/pages/property.html"><img src="../image/header.png" height="80px" width="200px"></a>
+
+
+  <div class="topnav">
+
+    <a href="./myBugdet.html"><strong>My Bugdet</strong></a>
+
+    <a class="active" href="user.html"><strong>My Details</strong></a>
+
+    <div class="login-container">
+      <form action="post">
+          <a class="cart-btn">
+                  <span class="nav-icon">
+                      <i class="fas fa-cart-plus"></i>
+                  </span>                                     
+          </a>
+
+          <a  class="log-out" href="login.html"><strong>Sign Out </strong></a>
+       
+      </form>
+</div>
+    </div>
+  </div>
+
+
+  <div class="login">
+    <div class="login-screen">
+      <div class="login-form">    
+
+        <form id="create_property_form" class="control-group create_property">          
+          <h3 class="create_property_header" >Bugdet My Money</h3>
+          <div class="display_error"></div>             
+            <input type="text" class="login-field" placeholder="title"  name="title" id="title"> 
+            <input type="text" class="login-field"  placeholder="amount"  name="amount" id="amount">
+            <input type="text" class="login-field" placeholder="description"  name="description" id="description">  
+           <select class="login-field category create_select_center " name="category">
+              <option placeholder="category" class="login-field create_select"> Choose category</option>        
+             
+            </select>       
+                       
+                  
+            <br>
+            
+             <input type="submit"  class="submitBtn login-field " id="create_pro"> 
+          </form>
+        </div>
+    </div>
+  </div>
+  </form>
+  </div>
+
+
+  <div id="footer">
+    &copy; <span id="date_savingamwa">2021</span> Designed by BYAMUNGU Desire || Savingamwa.rw
+  </div>
+
+
+</body>
+<script>
+
+  
+
+     // ---------------------for real time date at the bootom-------------------
+     const date = document.getElementById('date_savingamwa');
+            let date_Today = new Date();
+            let year = date_Today.getFullYear();
+            let month = date_Today.getMonth();
+            let day = date_Today.getUTCDay();
+                  
+            let today = date_Today.getUTCDate()
+            //formating date month to normal format jan-december
+                if(month == 0){
+                    month = "Jan"
+                } else if(month == 1){
+                    month = "Feb"
+                }else if(month == 2){
+                    month = "Mar"
+                }else if(month == 3){
+                    month = "Apr"
+                }else if(month == 4){
+                    month = "May"
+                }else if(month == 5){
+                    month = "Jun"
+                }else if(month == 7){
+                    month = "Aug"
+                }else if(month == 8){
+                    month = "Sept"
+                }else if(month == 9){
+                    month = "Oct"
+                }else if(month == 10){
+                    month = "Nov"
+                }else if(month == 11){
+                    month = "Dec"
+                }
+
+                
+            date.textContent= today +"-"+ month +"-"+year;
+
+            //...............................End here date month format
+</script>
+<script src="../js/addMoney.js"></script>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta />
+        <!-- <link rel="stylesheet" type="text/css" href="../css/style-signup-signin-sell.css"> -->
+        <link rel="stylesheet" href="../css/style-money.css" />
+        <title>Savingamwa</title>
+        <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
+        <!-- for-font-awesome -->
+        <link
+            rel="stylesheet"
+            href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+        />
+       
+        <script src="../js/user.js" defer></script>
+        <script src="../js/user_tabs.js" defer></script>
+        <script src="../js/categories.js" defer></script>
+    </head>
+
+    <body>
+        <a class="sell" href="sell.html"
+            ><img src="../image/header.png" height="80px" width="200px"
+        /></a>
+
+        <div class="topnav">
+            <a href="./myBugdet.html"><strong> Checking my Bugdet </strong></a>
+
+            <a class="active for_admin_only" href="addMoney.html"
+                ><strong> Add money</strong></a
+            >
+
+            <div class="bannerContainer">
+                <div class="login-container">
+                    <form action="post">
+                        <a class="nav_btn" href="./user.html">
+                            <span class="nav-icon">                                                 
+                                <i class="fas fa-user-circle"></i>                          
+                            </span>
+                        </a>
+
+                        <a class="log-out" href="login.html"
+                            ><strong>Sign Out </strong></a
+                        >
+            
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+
+    <!--  main admin dashboard -->
+    
+        <div class="main_admin">
+            <div class="tab">
+                <button
+                    class="tablinks"
+                    onclick="open_menu_dashboard(event, 'admin_details')"
+                >
+                    Personal Details
+                </button>
+                
+                <button
+                    class="tablinks"
+                    onclick="open_menu_dashboard(event, 'manager_category')"
+                >
+                    Manager Category
+                </button>
+            </div>
+    
+    
+            <div class="content_tab_main">
+                    <!-- Tab content -->
+                    <div id="admin_details" class="tabcontent admin_details">
+                        <h5> Welcome <span class="all_admin_header"></span></h5>
+                    </div>
+    
+                       
+                    <div id="manager_category" class="tabcontent manager_category">
+                        <h3>All <span class="all_category_header"></span> Categories</h3>
+    
+                        <div class="create_category_form">
+                            <form
+                                id="create_category_form"
+                                class="control-group create_category"
+                            >
+                                <div class="display_error_category"></div>
+                                <input
+                                    type="text"
+                                    class="category-field"
+                                    placeholder="name"
+                                    name="name"
+                                    id="name"
+                                />
+                                <button
+                                    class="submitBtn submitBtn_category category-field create_category_btn"
+                                    id="submitBtn_category"
+                                >
+                                    Add Category
+                                </button>
+                            </form>
+    
+                            <div class="success_message"></div>
+                            <div class="all_categories"></div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+      
+
+        <div id="footer">
+            &copy; <span id="date_savingamwa">2021</span>  Designed by BYAMUNGU desire || Savingamwa.rw
+        </div>
+
+        <script>
+            function open_menu_dashboard(evt, menu_dashboard) {
+                // Declare all variables
+                var i, tabcontent, tablinks
+
+                // Get all elements with class="tabcontent" and hide them
+                tabcontent = document.getElementsByClassName('tabcontent')
+                // tabcontent.textContent= 'this has been fecthed'
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = 'none'
+                }
+
+                // Get all elements with class="tablinks" and remove the class "active"
+                tablinks = document.getElementsByClassName('tablinks')
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(
+                        ' active',
+                        ''
+                    )
+                }
+
+                // Show the current tab, and add an "active" class to the button that opened the tab
+                document.getElementById(menu_dashboard).style.display = 'block'
+                evt.currentTarget.className += ' active'
+            }
+
+
+            // to show properties in cart
+            let user = JSON.parse(localStorage.getItem('user'));      
+                    if (user == null) {
+                        window.location.href = './login.html'
+                    }
+
+                    // cart logic
+                    if (typeof window !== 'undefined') {
+                    if (localStorage.getItem('cart')) {            
+                        let storedInCarrt = JSON.parse(localStorage.getItem('cart'))
+                        let cart = document.querySelectorAll(".cart-items")[0];
+                        cart.textContent = storedInCarrt.length
+                    }
+
+                }
+
+
+            // ---------------------for real time date at the bootom-------------------
+            const date = document.getElementById('date_savingamwa');
+            let date_Today = new Date();
+            let year = date_Today.getFullYear();
+            let month = date_Today.getMonth();
+            let day = date_Today.getUTCDay();
+          
+
+            let today = date_Today.getUTCDate()
+            //formating date month to normal format jan-december
+                if(month == 0){
+                    month = "Jan"
+                } else if(month == 1){
+                    month = "Feb"
+                }else if(month == 2){
+                    month = "Mar"
+                }else if(month == 3){
+                    month = "Apr"
+                }else if(month == 4){
+                    month = "May"
+                }else if(month == 5){
+                    month = "Jun"
+                }else if(month == 7){
+                    month = "Aug"
+                }else if(month == 8){
+                    month = "Sept"
+                }else if(month == 9){
+                    month = "Oct"
+                }else if(month == 10){
+                    month = "Nov"
+                }else if(month == 11){
+                    month = "Dec"
+                }
+
+                
+            date.textContent= today +"-"+ month +"-"+year;
+
+            //...............................End here date month format 
+
+
+        </script>
+    </body>
+</html>

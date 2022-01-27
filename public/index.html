@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" type="text/css" href="./css/style.css">
+         <title> Saving sha</title>
+         <link rel="icon" type="image/ico" href="./image/bar-icon.png" />
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+
+<a class="sell" href="./pages/sell.html"><img src="./image/header.png" height="80px" width="200px"></a>
+
+<div class="topnav">
+
+  
+   <a class="active"href="./index.html"><strong>HOME</strong></a>
+
+    
+<div class="login-container">
+    <form action="post">
+
+      <a  class="register" href="./pages/login.html">Sign In </a>
+      <a  href="./pages/sign_up.html">Sign up</a>
+    </form>
+  </div>
+</div>
+
+
+<div >
+      <img  id="banner" src="./image/banner.png" height="20%" width="100%">
+</div>
+
+<div class="welcome">
+    <h1 class="welcome-words">Welcome to Savinga!</h1><br>
+ 
+    
+</div>
+
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <div class="numbertext">1 / 6</div>
+        <img src="./image/apartment1.png" style="width:100%">
+        <div class="text">Prepare for the future!</div>
+    </div>
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 6</div>
+        <img src="./image/apartment2.png" style="width:100%">
+        <div class="text">Prepare for the future!</div>
+    </div>
+    <div class="mySlides fade">
+        <div class="numbertext">3 / 6</div>
+        <img src="./image/house1.png" style="width:100%">
+        <div class="text">Prepare for the future!</div>
+    </div>          
+    <div class="mySlides fade">
+        <div class="numbertext">4 / 6</div>
+        <img src="./image/house2.png" style="width:100%">
+        <div class="text">Prepare for the future!</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">5 / 6</div>
+        <img src="./image/house3.png" style="width:100%">
+        <div class="text">Prepare for the future!</div>
+    </div>
+    <div class="mySlides fade">
+        <div class="numbertext">6 / 6</div>
+        <img src="./image/house4.png" style="width:100%">
+        <div class="text">Prepare for the future!</div>
+    </div>
+</div>
+<br>
+<div style="text-align:center">
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+</div>
+
+
+<div id="footer">
+&copy;<span id="date_savingamwa">2021</span>   Designed by BYAMUNGU desire || Savingamwa.rw
+ </div> 
+
+</body>
+
+
+<script>
+  /******SLIDESHOW***** */
+  let slideIndex = 0;
+  const showSlides = () => {
+      const slides = document.getElementsByClassName('mySlides');
+      const dots = document.getElementsByClassName('dot');
+      for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+      }
+      slideIndex += 1;
+      if (slideIndex > slides.length) { 
+                  slideIndex = 1; 
+        }
+
+      for (let i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(' active', '');
+      }
+      slides[slideIndex - 1].style.display = 'block';
+      dots[slideIndex - 1].className += ' active';
+      setTimeout(showSlides, 4000); // Change image every 3 seconds
+  };
+  
+  showSlides();
+
+
+// not showing if user is still logged in 
+    let user = JSON.parse(localStorage.getItem('user')); 
+      console.log(user);
+      if(user){
+        window.location.href = '../pages/user.html';
+      }      
+
+
+
+   // ---------------------for real time date at the bootom-------------------
+   const date = document.getElementById('date_savingamwa');
+            let date_Today = new Date();
+            let year = date_Today.getFullYear();
+            let month = date_Today.getMonth();
+            let day = date_Today.getUTCDay();
+            console.log(month)
+
+            let today = date_Today.getUTCDate()
+            //formating date month to normal format jan-december
+                if(month == 0){
+                    month = "Jan"
+                } else if(month == 1){
+                    month = "Feb"
+                }else if(month == 2){
+                    month = "Mar"
+                }else if(month == 3){
+                    month = "Apr"
+                }else if(month == 4){
+                    month = "May"
+                }else if(month == 5){
+                    month = "Jun"
+                }else if(month == 7){
+                    month = "Aug"
+                }else if(month == 8){
+                    month = "Sept"
+                }else if(month == 9){
+                    month = "Oct"
+                }else if(month == 10){
+                    month = "Nov"
+                }else if(month == 11){
+                    month = "Dec"
+                }
+
+                
+            date.textContent= today +"-"+ month +"-"+year;
+
+            //...............................End here date month format
+
+</script>
+</html>
+
+
+
+
