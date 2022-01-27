@@ -82,6 +82,7 @@ Everything work perfect , However :
 -   \$ cd UI
 -   \$ npm i, to install depencies
 -   \$ npm start ,to start the server
+-   \$ npm test ,to test
 
 # Contributing
 
