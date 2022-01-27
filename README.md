@@ -17,24 +17,24 @@
 
 # PROJECT OVERVIEW
 
-**savingamwa**is a ap to track your expenses and income, you can create and/or search your expenses or income. It was built from using javascript, node, HTML , and CSS.
+**tembera**is a app build to help travels to enjoy their stay in rwanda. You tell the app where you are or where you want to go and it tells you all beautiful things to do in that place where you are or where you want to go. It was built using javascript, node, HTML , and CSS.
 
--   The user interface link : https://byadiso.github.io/savingamwa/
--   Live app is hosted on heroku : https://savingamwa.herokuapp.com
+-   The user interface link : https://byadiso.github.io/tembera/
+-   Live app is hosted on heroku : https://tembera.herokuapp.com
 
 # FEATURES
 
--   user can Sign in
--   user can login
+-   user can Sign in if he want
+-   user can login if he want
 -   user can view
--   user can view specific transaction
--   user can view user expenses
--   user can delete user expenses
--   user can view user income
--   user can delete his income
--   user can do his history
--   user can modify his input
-    t
+-   user can type his/ her location
+-   user can view different location
+-   user can view different attracting things in the area
+-   user add a picture if he enjoy his stay
+-   user can view different categories to things to do in that area
+-   user can delete his picture
+-   user can his hostory search
+-   user can modify his details if entered
 
 # DEMO
 
@@ -59,14 +59,13 @@
 
 ## API End Points
 
--   GET /api/v1/expenses \_Get all expenses
+-   GET /api/v1/place \_Get all places in rwanda
 -   POST/api/v1/expenses \_Create expenses
--   PUT/api/v1/expense \_Update expense
--   DELETE/api/v1/expense \_Delete expense
--   GET /api/v1/incomes \_Get all incomes
--   POST/api/v1/income \_Create income
--   PUT/api/v1/income \_Update income
--   DELETE/api/v1/income \_Delete income
+-   PUT/api/v1/account \_Update details
+-   GET/api/v1/category_visit \_See all things in that area to do
+-   GET /api/v1/profile \_Get all all user details
+-   POST/api/v1/favorite \_Create a photo place
+-   DELETE/api/v1/favorite \Delete a photo place
 
 -   POST/api/v1/auth/signup _User to signup_
 -   POST/api/v1/auth/signin _User to signin_
@@ -79,7 +78,7 @@ Everything work perfect , However :
 
 # Installation
 
--   \$ git clone https://github.com/Byadiso/savingamwa.git
+-   \$ git clone https://github.com/Byadiso/tembera.git
 -   \$ cd UI
 -   \$ npm i, to install depencies
 -   \$ npm start ,to start the server
