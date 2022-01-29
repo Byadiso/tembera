@@ -33,7 +33,7 @@
 -   user add a picture if he enjoy his stay
 -   user can view different categories to things to do in that area
 -   user can delete his picture
--   user can his hostory search
+-   user can his history search
 -   user can modify his details if entered
 
 # DEMO

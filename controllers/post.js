@@ -2,7 +2,7 @@ import { errorHandler } from '../helper/dbErroHandler'
 import formidable from 'formidable'
 import _ from 'lodash'
 import fs from 'fs'
-import Money from '../models/money'
+import Post from '../models/post'
 import path from 'path'
 import express from 'express'
 
@@ -18,23 +18,23 @@ app.use((req, res, next) => {
 
 // controlls for routes
 
-exports.moneyById = (req, res, next) => {
-    Money.findById({ _id: req.params.moneyId })
+exports.postById = (req, res, next) => {
+    Post.findById({ _id: req.params.postId })
         .populate('category')
-        .exec((err, money) => {
-            if (err || !money) {
+        .exec((err, post) => {
+            if (err || !post) {
                 return res.status(400).json({
-                    error: ' money not found',
+                    error: ' post not found',
                 })
             }
-            req.money = money
+            req.post = post
             next()
         })
 }
 
 exports.read = (req, res) => {
-    req.money.photo = undefined
-    return res.json(req.money)
+    req.post.photo = undefined
+    return res.json(req.post)
 }
 
 exports.list = (req, res) => {
@@ -42,7 +42,7 @@ exports.list = (req, res) => {
     let sortBy = req.query.sortBy ? req.query.sortBy : '_id'
     let limit = req.query.limit ? parseInt(req.query.limit) : 12
 
-    Money.find()
+    Post.find()
         .select('-photo')
         .populate('category')
         .sort([[sortBy, order]])
@@ -50,11 +50,11 @@ exports.list = (req, res) => {
         .exec((err, data) => {
             if (err) {
                 return res.status(400).json({
-                    error: 'moneys not found',
+                    error: 'posts not found',
                 })
             }
             res.status(200).json({
-                moneys: data,
+                posts: data,
                 message: 'My Budget',
                 status: true,
             })
@@ -63,22 +63,22 @@ exports.list = (req, res) => {
 
 exports.listRelated = (req, res) => {
     let limit = req.query.limit ? parseInt(req.query.limit) : 4
-    console.log(req.money.category)
-    Money.find({ _id: { $ne: req.money }, category: req.money.category })
+    console.log(req.post.category)
+    Post.find({ _id: { $ne: req.post }, category: req.post.category })
         .limit(limit)
         .populate('category', '_id title')
-        .exec((err, moneys) => {
+        .exec((err, posts) => {
             if (err) {
                 return res.status(400).json({
-                    error: 'moneys not found',
+                    error: 'posts not found',
                 })
             }
-            res.json(moneys)
+            res.json(posts)
         })
 }
 
 exports.listCategories = (req, res) => {
-    Money.distinct('category', {}, (err, categories) => {
+    Post.distinct('category', {}, (err, categories) => {
         if (err) {
             return res.status(400).json({
                 error: ' categories not found',
@@ -89,28 +89,28 @@ exports.listCategories = (req, res) => {
 }
 
 exports.listByUser = (req, res) => {
-    Money.find({ createdBy: req.userId }, (err, moneys) => {
+    Post.find({ createdBy: req.userId }, (err, posts) => {
         if (err) {
             return res.status(400).json({
                 error: errorHandler(err),
             })
         }
         res.json({
-            moneys: moneys,
+            posts: posts,
         })
     })
 }
 
 exports.listBycategory = (req, res) => {
-    Money.find({ category: req.params.categoryId }, (err, moneys) => {
+    Post.find({ category: req.params.categoryId }, (err, posts) => {
         if (err) {
             return res.status(400).json({
                 error: errorHandler(err),
             })
         }
         res.json({
-            data: moneys,
-            message: 'moneys by category',
+            data: posts,
+            message: 'posts by category',
         })
     })
 }
@@ -140,7 +140,7 @@ exports.listBySearch = (req, res) => {
         }
     }
 
-    Money.find(findArgs)
+    Post.find(findArgs)
         .select('-photo')
         .populate('category')
         .sort([[sortBy, order]])
@@ -149,7 +149,7 @@ exports.listBySearch = (req, res) => {
         .exec((err, data) => {
             if (err) {
                 return res.status(400).json({
-                    error: 'moneys not found',
+                    error: 'posts not found',
                 })
             }
             res.json({
@@ -176,9 +176,9 @@ exports.create = (req, res) => {
             })
         }
 
-        let money = new Money(fields)
-        money.createdBy = req.profile
-        money.save((err, result) => {
+        let post = new post(fields)
+        post.createdBy = req.profile
+        post.save((err, result) => {
             if (err) {
                 return res.status(404).json({
                     // error: errorHandler(err),
@@ -196,16 +196,16 @@ exports.create = (req, res) => {
 }
 
 exports.remove = (req, res) => {
-    let money = req.money
-    money.remove((err, deletedmoney) => {
+    let post = req.post
+    post.remove((err, deletedpost) => {
         if (err) {
             return res.status(400).json({
                 error: errorHandler(err),
             })
         }
         res.json({
-            deletedmoney,
-            message: 'money deleted successfully',
+            deletedpost,
+            message: 'post deleted successfully',
             status: true,
         })
     })
@@ -221,9 +221,9 @@ exports.update = (req, res) => {
             })
         }
 
-        let money = req.money
-        money = _.extend(money, fields)
-        money.save((err, result) => {
+        let post = req.post
+        post = _.extend(post, fields)
+        post.save((err, result) => {
             if (err) {
                 return res.status(404).json({
                     // error: errorHandler(err),
@@ -250,15 +250,15 @@ exports.listSearch = (req, res) => {
         if (req.query.category && req.query.category != 'All') {
             query.category = req.query.category
         }
-        // find the money based on query object with 2 moneys
+        // find the post based on query object with 2 posts
         // search and category
-        Money.find(query, (err, moneys) => {
+        Post.find(query, (err, posts) => {
             if (err) {
                 return res.status(400).json({
                     error: errorHandler(err),
                 })
             }
-            res.json(moneys)
+            res.json(posts)
         }).select('-photo')
     }
 }
@@ -289,7 +289,7 @@ exports.listByMonth = (req, res) => {
         }
     }
 
-    Money.find(findArgs)
+    Post.find(findArgs)
         .select('-photo')
         .populate('category')
         .sort([[sortBy]])
@@ -298,7 +298,7 @@ exports.listByMonth = (req, res) => {
         .exec((err, data) => {
             if (err) {
                 return res.status(400).json({
-                    error: 'moneys not found',
+                    error: 'posts not found',
                 })
             }
             res.json({
