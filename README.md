@@ -1,7 +1,7 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/f8910ac7a64bcd78c3a6/maintainability)](https://codeclimate.com/github/Byadiso/UI/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/f8910ac7a64bcd78c3a6/test_coverage)](https://codeclimate.com/github/Byadiso/UI/test_coverage)
-[![Coverage Status](https://coveralls.io/repos/github/Byadiso/UI/badge.svg?branch=master)](https://coveralls.io/github/Byadiso/UI?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f8910ac7a64bcd78c3a6/maintainability)](https://codeclimate.com/github/Byadiso/tembera/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/f8910ac7a64bcd78c3a6/test_coverage)](https://codeclimate.com/github/Byadiso/tembera/test_coverage)
+[![Coverage Status](https://coveralls.io/repos/github/Byadiso/UI/badge.svg?branch=master)](https://coveralls.io/github/Byadiso/tembera?branch=master)
 
-[![Build Status](https://travis-ci.org/Byadiso/UI.svg?branch=develop)](https://travis-ci.org/Byadiso/UI)
+[![Build Status](https://travis-ci.org/Byadiso/UI.svg?branch=develop)](https://travis-ci.org/Byadiso/tembera)
 
 # TABLE OF CONTENTS
 
@@ -17,7 +17,7 @@
 
 # PROJECT OVERVIEW
 
-**tembera** is a app build to help travels to enjoy their stay in rwanda. You tell the app where you are or where you want to go and it tells you all beautiful things to do in that place where you are or where you want to go. It was built using javascript, node, HTML , and CSS.
+**tembera** is a app build to help travels to enjoy their stay in Rwanda. You tell the app where you are or where you want to go and it tells you all beautiful things to do in that place where you are or where you want to go. It was built using javascript, node, HTML , and CSS.
 
 -   The user interface link : https://byadiso.github.io/tembera/
 -   Live app is hosted on heroku : https://tembera.herokuapp.com
@@ -44,7 +44,7 @@
 
 -   CSS
 -   HTML
--   Javascript
+-   JavaScript
 
 ### backend
 
