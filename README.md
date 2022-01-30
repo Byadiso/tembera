@@ -17,7 +17,7 @@
 
 # PROJECT OVERVIEW
 
-**tembera**is a app build to help travels to enjoy their stay in rwanda. You tell the app where you are or where you want to go and it tells you all beautiful things to do in that place where you are or where you want to go. It was built using javascript, node, HTML , and CSS.
+**tembera** is a app build to help travels to enjoy their stay in rwanda. You tell the app where you are or where you want to go and it tells you all beautiful things to do in that place where you are or where you want to go. It was built using javascript, node, HTML , and CSS.
 
 -   The user interface link : https://byadiso.github.io/tembera/
 -   Live app is hosted on heroku : https://tembera.herokuapp.com
@@ -49,6 +49,7 @@
 ### backend
 
 -   Javascript
+-   Express js
 -   Node js
 
 ## Middleware
