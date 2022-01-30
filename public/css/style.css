@@ -53,7 +53,7 @@
   }
   
   .menu {
-    height: 92.5%;
+    height: 100%;
     width: 15%;    
     position: fixed;
     z-index: 1;
@@ -93,6 +93,7 @@
 .menu > h1{
   padding: 10px;
 }
+
 /* 
 for the main container  */
 .main{
@@ -385,13 +386,13 @@ for the main container  */
   
    
   #footer {
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
     height:45px;
     padding-top: 15px;
-    background-color: #efefef;
+    /* background-color: #efefef; */
     text-align: center;
     font-size: 16px;
     }
