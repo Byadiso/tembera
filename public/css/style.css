@@ -15,7 +15,7 @@
   --error:rgb(204, 14, 14);
   --colorText: black;  
   --background-color:rgb(251 251 251);
-  ;
+  --colorHoverlink:rgba(0, 0, 0, 0.123);
 }
 
 * {
@@ -39,21 +39,22 @@
     color: white;
     font-family: helvetica;
     font-size: 16px;
-  font-weight: 200;
+    font-weight: 200;
   }
   
   /*for menu bar    */
-  /* #aside{
-        position: relative;
-        height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-  } */
+  #aside{
+       background: #fff;
+       /* padding: 30px;
+       margin-right: 10px;
+       margin-bottom: 30px;
+       border-radius: 9px; */
+       box-shadow: 0 1px 9px #e8e8e8;
+  }
+  
   .menu {
-    height: 100%;
-    width: 0;
+    height: 92.5%;
+    width: 15%;    
     position: fixed;
     z-index: 1;
     top: 0;
@@ -61,32 +62,42 @@
     background-color: #111;
     overflow-x:visible;
     transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 20px;
+    padding-right: 20px;
+    box-shadow: 0 1px 9px #e8e8e8;
+    background: var(--whiteColor);
+    
   }
 
-.menu a {
-  padding: 8px 8px 8px 32px;
+.menu > a {
+  padding: 10px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+  font-size: 18px;
+  color: var(--textColorGrey);
   display: block;
   transition: 0.3s;
+  align-items:center;
+  /* display:flex; */
+  flex-direction: column;
+}
+.menu>a > i {
+  padding: 10px;
+  
 }
 
 .menu a:hover {
-  color: #f1f1f1;
+ color: var(--textColorGrey);
+  background: var(--colorHoverlink);
+  text-decoration: none;
 }
-
-.menu .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+.menu > h1{
+  padding: 10px;
 }
 /* 
 for the main container  */
-
+.main{
+  margin-left: 100px;
+}
 .container{
       width: 100%;
       max-width: 700px;
@@ -126,6 +137,7 @@ for the main container  */
 .main_navigation .navigation{ 
       background: #fff;
       padding: 30px;
+      margin-right: 10px;
       margin-bottom: 30px;
       border-radius: 9px;
       box-shadow: 0 1px 9px #e8e8e8;
