@@ -1,168 +1,170 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta />       
-        <title> Savingamwa</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="../css/style.css" />
+        <title>Tembera.rw</title>
         <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
-        <script type="module" src="../js/script.js" defer></script>
-        <script src="../js/search.js" defer></script>
-
-        
-       
-        <!-- for fonts -->
         <link
             rel="stylesheet"
-            href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-          
-        
-        <!-- custom file css -->
-        <link rel="stylesheet" type="text/css" href="../css/style-money.css"/>
+        <!-- Latest compiled and minified CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+            integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+            crossorigin="anonymous"
+        />
+        <link 
+            rel="stylesheet" 
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
+            crossorigin="anonymous"
+        />
 
     </head>
     <body>
-        <a class="sell" href="http://localhost:3000/public/pages/property.html"
-            ><img src="../image/header.png" height="80px" width="200px"
-        /></a>
-
-        <div class="topnav">
-               <a href="addMoney.html">
-                   <strong><span class="admin_createPro">Add money</span></strong></a>
-            
-            <a href="./user.html"><strong>My Dashboard</strong></a>
-
-            <div class="login-container">
-                <form action="post">
-                    <a class="cart-btn" href="./history.html">
-                        <span class="nav-icon">                                                 
-                            <i class="fas fa-history"></i>                            
-                        </span>
-                    </a>
-                    <a class="nav_btn" href="./user.html">
-                        <span class="nav-icon">                                                 
-                            <i class="fas fa-user-circle"></i>                          
-                        </span>
-                    </a>
-                   
-
-                    <a class="log-out" href="#"><strong>Sign Out </strong></a>
-                 
-                </form>
-            </div>
-        </div>
-    
-        <div class="header-menu">
-            <p id="header-text">My Bugdet </p>
-        </div>
-        
-        <div class="filters">
-            <div class="filterCheck"></div>
-            <form class="searchBar" id="input_search">
-                <input
-                    type="text"
-                    name="search"
-                    id="searchBar"
-                    class="input_search"
-                    placeholder="search for a property"
-                />
-                <button class="btnSearch">search</button>
-            </form>
-        </div>
-
-        <!-- Searched products -->
-        <div class="search_container">
-            <div>
-                <h2 class="search_title"></h2>
-            </div>
-            <div id="searched_content"></div>
-        </div>
-        <!--
-                I want to put my data here from my backend                
-                -->
-
-        <div class="main_properties">
-
-            <div class="wallet_details"> 
-                <h5 class="category_details saving" data-category="savings">My Savings <span id="savings"></span></h5>
-                <h5 class="category_details incomes" data-category="income">My Income <span id="incomes"></span></h5>
-                <h5 class="category_details expense" data-category="expenses">My Expenses <span id="expenses"></span></h5>
+        <div class="container">
+            <div class="menu" id="aside">
+                <h1>Tembera</h1>
+                <hr />
+                <a class="active" href="../index.html"><i class="fas fa-home"></i>HOME</a>
+                <a class="active" href="../pages/profile.html"><i class="fas fa-user"></i>Profile</a>
+                <a class="active" href="../pages/explore.html"><i class="fab fa-wpexplorer"></i>Explore</a>
+                <a class="active" href="../pages/settings.html"><i class="fas fa-user-cog"></i>Settings</a>
+                <a class="active" href="../pages/login.html"><i class="fas fa-sign-out-alt"></i>Sign in</a>
             </div>
 
-            <div id="myMoneys">                
-                <div class="saving_card">                    
-                    <h3 class="saving">My Wallet <span id="saving"></span></h3>
+            <div class="main">
+                <div class="main_welcome">
+                    <h1 class="welcome_text">These are our cities</h1>
+                    <h1 class="main_welcome_title">
+                       Explore them if you have time
+                    </h1>
                 </div>
-                      
 
-        <!--  implementation of loading spin  -->
-        <div id="loader-wrapper">
-            <div id="loader"></div>
-        </div>
+                <div class="main_navigation">
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>1</span>
+                            <div class="navigation_content">
+                                <p>Rubavu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>2</span>
+                            <div class="navigation_content">
+                                <p>Musanze</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>3</span>
+                            <div class="navigation_content">
+                                <p>Kigali</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>4</span>
+                            <div class="navigation_content">
+                                <p>Muhanga</p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                
+                <div class="main_navigation">
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>1</span>
+                            <div class="navigation_content">
+                                <p>HUYE</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>2</span>
+                            <div class="navigation_content">
+                                <p>RUSIZI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>3</span>
+                            <div class="navigation_content">
+                                <p>NYAMAGABE</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>4</span>
+                            <div class="navigation_content">
+                                <p>KIBUNGO</p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                
 
         <div id="footer">
-            &copy;<span id="date_savingamwa">2021</span> Designed by BYAMUNGU desire || Savingamwa.rw
+            &copy;<span id="date_tembera">2021</span> Designed by BYAMUNGU
+            desire || tembera.rw
         </div>
     </body>
 
-    <script defer>
-        let user = JSON.parse(localStorage.getItem('user'));      
-        if (user == null) {
-            window.location.href = './login.html'
+    <script>
+        // not showing if user is still logged in
+        let user = JSON.parse(localStorage.getItem('user'))
+        console.log(user)
+        if (user) {
+            window.location.href = '../pages/user.html'
         }
 
-         // cart logic
-        if (typeof window !== 'undefined') {
-        if (localStorage.getItem('cart')) {            
-            let storedInCarrt = JSON.parse(localStorage.getItem('cart'))
-            let cart = document.querySelectorAll(".cart-items")[0];
-            cart.textContent = storedInCarrt.length
+        // ---------------------for real time date at the bootom-------------------
+        const date = document.getElementById('date_tembera')
+        let date_Today = new Date()
+        let year = date_Today.getFullYear()
+        let month = date_Today.getMonth()
+        let day = date_Today.getUTCDay()
+        console.log(month)
+
+        let today = date_Today.getUTCDate()
+        //formating date month to normal format jan-december
+        if (month == 0) {
+            month = 'Jan'
+        } else if (month == 1) {
+            month = 'Feb'
+        } else if (month == 2) {
+            month = 'Mar'
+        } else if (month == 3) {
+            month = 'Apr'
+        } else if (month == 4) {
+            month = 'May'
+        } else if (month == 5) {
+            month = 'Jun'
+        } else if (month == 7) {
+            month = 'Aug'
+        } else if (month == 8) {
+            month = 'Sept'
+        } else if (month == 9) {
+            month = 'Oct'
+        } else if (month == 10) {
+            month = 'Nov'
+        } else if (month == 11) {
+            month = 'Dec'
         }
 
-    }
+        date.textContent = today + '-' + month + '-' + year
 
-
-
-    
-  
-
-            // ---------------------for real time date at the bootom-------------------
-            const date = document.getElementById('date_savingamwa');
-            let date_Today = new Date();
-            let year = date_Today.getFullYear();
-            let month = date_Today.getMonth();
-            let day = date_Today.getUTCDay();
-           
-            let today = date_Today.getUTCDate()
-            //formating date month to normal format jan-december
-                if(month == 0){
-                    month = "Jan"
-                } else if(month == 1){
-                    month = "Feb"
-                }else if(month == 2){
-                    month = "Mar"
-                }else if(month == 3){
-                    month = "Apr"
-                }else if(month == 4){
-                    month = "May"
-                }else if(month == 5){
-                    month = "Jun"
-                }else if(month == 7){
-                    month = "Aug"
-                }else if(month == 8){
-                    month = "Sept"
-                }else if(month == 9){
-                    month = "Oct"
-                }else if(month == 10){
-                    month = "Nov"
-                }else if(month == 11){
-                    month = "Dec"
-                }
-
-                
-            date.textContent= today +"-"+ month +"-"+year;
-
-            //...............................End here date month format
-       
+        //...............................End here date month format
     </script>
 </html>

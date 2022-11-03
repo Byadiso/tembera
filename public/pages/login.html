@@ -1,101 +1,170 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="../css/style.css" />
+        <title>Tembera.rw</title>
+        <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <!-- Latest compiled and minified CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+            integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+            crossorigin="anonymous"
+        />
+        <link 
+            rel="stylesheet" 
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
+            crossorigin="anonymous"
+        />
 
-<head>
-
- <meta>
-        <link rel="stylesheet" type="text/css" href="../css/style-signup-signin-sell.css">
-        <title> Savingamwa</title>
-        <link rel="icon" type="image/ico" href="../image/bar-icon.png" />      
-
-<body>
-  <a class="sell" href="sell.html"><img src="../image/header.png" height="80px" width="200px"></a>
-<div class="topnav">
-
-  <a href="../index.html"><strong>HOME </strong></a>
-
-   
-
-
-<div class="login-container">
-    <form action="post">
-      <a   class="active" href="login.html">Sign In </a>
-      <a  href="sign_up.html">Sign up</a>
-    </form>
-  </div>
-</div>
-
-    <div class="login">
-        <div class="login-screen">
-            <div class="app-title">
-                <h1 >Login to your account.</h1>
+    </head>
+    <body>
+        <div class="container">
+            <div class="menu" id="aside">
+                <h1>Tembera</h1>
+                <hr />
+                <a class="active" href="../index.html"><i class="fas fa-home"></i>HOME</a>
+                <a class="active" href="../pages/profile.html"><i class="fas fa-user"></i>Profile</a>
+                <a class="active" href="../pages/explore.html"><i class="fab fa-wpexplorer"></i>Explore</a>
+                <a class="active" href="../pages/settings.html"><i class="fas fa-user-cog"></i>Settings</a>
+                <a class="active" href="../pages/login.html"><i class="fas fa-sign-out-alt"></i>Sign in</a>
             </div>
 
-
-            <form id="formLogin">
-             
-               <div class="login-form">
-                <div id="password2Err"></div>
-                  <div id="usernameErr"></div>
-                    <div class="control-group">
-                      <input type="text" class="login-field"  placeholder="Email" name="email" id="email">
-                     
-                     </div>
-                <div id="emailErr"></div>
-                <div class="control-group">
-                   <input type="password" class="login-field" placeholder="Password" name="password"  id="password">
+            <div class="main">
+                <div class="main_welcome">
+                    <h1 class="welcome_text">These are our cities</h1>
+                    <h1 class="main_welcome_title">
+                       Explore them if you have time
+                    </h1>
                 </div>
-                <div id="passwordErr"></div>
-                
-                <div><input type="checkbox" id="checkbox" onclick="togglePassword()">Show Password</div>
-				   
 
-              
-               <div id="incorrectServer"> </div>
+                <div class="main_navigation">
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>1</span>
+                            <div class="navigation_content">
+                                <p>Rubavu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>2</span>
+                            <div class="navigation_content">
+                                <p>Musanze</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>3</span>
+                            <div class="navigation_content">
+                                <p>Kigali</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>4</span>
+                            <div class="navigation_content">
+                                <p>Muhanga</p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
                 
-            </form>
-            <button id="loginBtn">login</button>
-           
-                <a class="login-link" href="#">Forgot your password?</a> <p>or need an account,<a class="login-link" href="./sign_up.html">Register Now</a></p>
-            </div>
+                <div class="main_navigation">
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>1</span>
+                            <div class="navigation_content">
+                                <p>HUYE</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>2</span>
+                            <div class="navigation_content">
+                                <p>RUSIZI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>3</span>
+                            <div class="navigation_content">
+                                <p>NYAMAGABE</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation" style="padding: 16px">
+                        <div class="homestep">
+                            <span>4</span>
+                            <div class="navigation_content">
+                                <p>KIBUNGO</p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                
+
+        <div id="footer">
+            &copy;<span id="date_tembera">2021</span> Designed by BYAMUNGU
+            desire || tembera.rw
         </div>
-    </div>
+    </body>
 
-    <div id="footer">
-        &copy; 2019  Designed by BYAMUNGU desire || Savingamwa.rw
-    </div> 
+    <script>
+        // not showing if user is still logged in
+        let user = JSON.parse(localStorage.getItem('user'))
+        console.log(user)
+        if (user) {
+            window.location.href = '../pages/user.html'
+        }
 
-</body>
+        // ---------------------for real time date at the bootom-------------------
+        const date = document.getElementById('date_tembera')
+        let date_Today = new Date()
+        let year = date_Today.getFullYear()
+        let month = date_Today.getMonth()
+        let day = date_Today.getUTCDay()
+        console.log(month)
 
-<script >
+        let today = date_Today.getUTCDate()
+        //formating date month to normal format jan-december
+        if (month == 0) {
+            month = 'Jan'
+        } else if (month == 1) {
+            month = 'Feb'
+        } else if (month == 2) {
+            month = 'Mar'
+        } else if (month == 3) {
+            month = 'Apr'
+        } else if (month == 4) {
+            month = 'May'
+        } else if (month == 5) {
+            month = 'Jun'
+        } else if (month == 7) {
+            month = 'Aug'
+        } else if (month == 8) {
+            month = 'Sept'
+        } else if (month == 9) {
+            month = 'Oct'
+        } else if (month == 10) {
+            month = 'Nov'
+        } else if (month == 11) {
+            month = 'Dec'
+        }
 
-        function togglePassword() {
-                        const input = document.getElementById("password");
-                        if (input.type === "password") {
-                            input.type = "text";
-                        } else {
-                            input.type = "password";
-                        }
-                    }
+        date.textContent = today + '-' + month + '-' + year
 
-                function login () {
-
-                }
-
-
-    let user = JSON.parse(localStorage.getItem('user')); 
-    console.log(user);
-    if(user){
-      window.location.href = '../pages/user.html';
-    }      
-
-
-   // Real time footer
-
-   
-</script>
-<script src="../js/login.js"></script>
-
-
+        //...............................End here date month format
+    </script>
 </html>
