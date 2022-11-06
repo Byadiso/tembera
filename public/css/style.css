@@ -497,6 +497,11 @@ for the main container  */
     color: var(--colorText);
   }
 
+  /* for map */
+  #map { 
+    height: 250px; 
+  }
+
 
 
   @media screen and (min-width: 768px) {

@@ -23,6 +23,14 @@
             crossorigin="anonymous"
         />
 
+            <!--  Leaflet -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.78.0/dist/L.Control.Locate.min.css" />
+            <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+        integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+        crossorigin=""/>
+            <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
     </head>
     <body>
         <div class="container">
@@ -37,6 +45,9 @@
             </div>
 
             <div class="main">
+
+                <div id="map"></div>
+
                 <div class="main_welcome">
                     <h1 class="welcome_text">These are our cities</h1>
                     <h1 class="main_welcome_title">
@@ -113,7 +124,8 @@
                         </div>
                     </div>                    
                 </div>
-                
+
+                     
 
         <div id="footer">
             &copy;<span id="date_tembera">2021</span> Designed by BYAMUNGU
@@ -121,6 +133,15 @@
         </div>
     </body>
 
+    <!-- for leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+     integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+     crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.78.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+    <!-- other javascript lgoic -->
     <script>
         // not showing if user is still logged in
         let user = JSON.parse(localStorage.getItem('user'))
@@ -135,7 +156,7 @@
         let year = date_Today.getFullYear()
         let month = date_Today.getMonth()
         let day = date_Today.getUTCDay()
-        console.log(month)
+       
 
         let today = date_Today.getUTCDate()
         //formating date month to normal format jan-december
@@ -166,5 +187,64 @@
         date.textContent = today + '-' + month + '-' + year
 
         //...............................End here date month format
+
+
+        // --------------------------------for leaflet map ................................
+        var map = L.map('map').setView([51.505, -0.09], 13);
+                   L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+            L.Control.geocoder().addTo(map);
+
+            if (!navigator.geolocation) {
+            console.log("Your browser doesn't support geolocation feature!")
+        } else {
+            setInterval(() => {
+                navigator.geolocation.getCurrentPosition(getPosition)
+            }, 5000);
+        };
+        var marker, circle, lat, long, accuracy;
+
+        // function getPosition(position) {
+        //     // console.log(position)
+        //     lat = position.coords.latitude
+        //     long = position.coords.longitude
+        //     accuracy = position.coords.accuracy
+
+        //     if (marker) {
+        //         map.removeLayer(marker)
+        //     }
+
+        //     if (circle) {
+        //         map.removeLayer(circle)
+        //     }
+
+        //     marker = L.marker([lat, long])
+        //     circle = L.circle([lat, long], { radius: accuracy })
+
+        //     var featureGroup = L.featureGroup([marker, circle]).addTo(map)
+
+        //     map.fitBounds(featureGroup.getBounds())
+            
+        // }
+
+        L.control.locate().addTo(map);
+
+        // Adding routing control
+        
+
+            //map onclick event
+            map.on("click",function(e){
+                console.log(e)
+                // var secondMark = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map)
+                L.Routing.control({
+                waypoints: [
+                    L.latLng(50.0908188297183, 19.99161144196471),
+                    L.latLng(e.latlng.lat, e.latlng.lng)
+                ]
+                }).on("routesfound",function(e){
+                    console.log(e)
+                }).addTo(map);
+            })
     </script>
 </html>
